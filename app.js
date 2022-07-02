@@ -8,8 +8,6 @@ var config = require("config");
 var cors = require("cors");
 
 var indexRouter = require("./routes/index");
-var medicinesRouter = require("./routes/api/medicines");
-var usersRouter = require("./routes/api/users");
 
 var app = express();
 
@@ -18,6 +16,9 @@ app.use(express.static(path.join(__dirname, "client/build")));
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });
+
+var medicinesRouter = require("./routes/api/medicines");
+var usersRouter = require("./routes/api/users");
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
